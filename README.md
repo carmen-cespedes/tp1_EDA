@@ -1,6 +1,6 @@
 ## Análisis Exploratorio de Datos (EDA) ##
 
-Repositorio del TP de la materia, centrado en un análisis exploratorio de datos sobre patrones de sueño y rendimiento diario.
+Repositorio del TP, centrado en un análisis exploratorio de datos sobre patrones de sueño y rendimiento diario.
 
 ---
 
