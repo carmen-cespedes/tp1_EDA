@@ -88,14 +88,18 @@ El dataset contiene mediciones de calidad y composición del sueño de 100.000 i
 
 El análisis se desarrolló en Python (Jupyter Notebook) y siguió los siguientes pasos:
 
-1. **Carga e inspección inicial:** verificación de dimensiones, tipos de datos y estadísticos descriptivos.
-2. **Limpieza de datos:** detección de nulos, duplicados, validación de rangos lógicos y coherencia interna (verificación de que REM% + Deep% ≤ 100%).
-3. **Creación de variables derivadas:** minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
-4. **EDA general:**
+1. ###Carga e inspección inicial: 
+verificación de dimensiones, tipos de datos y estadísticos descriptivos.
+2. ###Limpieza de datos:
+detección de nulos, duplicados, validación de rangos lógicos y coherencia interna (verificación de que REM% + Deep% ≤ 100%).
+3. ### 3. La paradoja médica: el caso de los doctores (sub-análisis de H2) 
+minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
+4. ### 4. El BMI tiene un impacto direccional pero débil sobre el sueño profundo (H3)
    - 3 histogramas con KDE para variables numéricas clave
    - Detección de outliers mediante el método del rango intercuartílico (IQR)
    - Matriz de correlación entre variables numéricas
-5. **Análisis por hipótesis:** combinación de visualizaciones específicas (boxplots, scatterplots) con tests estadísticos (Pearson, ANOVA, Tukey HSD, t-test, Chi²).
+5.### 5. La edad no predice el porcentaje de sueño REM en este dataset (H4)
+combinación de visualizaciones específicas (boxplots, scatterplots) con tests estadísticos (Pearson, ANOVA, Tukey HSD, t-test, Chi²).
 
 ---
 
