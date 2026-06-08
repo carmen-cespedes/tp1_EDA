@@ -88,18 +88,14 @@ El dataset contiene mediciones de calidad y composición del sueño de 100.000 i
 
 El análisis se desarrolló en Python (Jupyter Notebook) y siguió los siguientes pasos:
 
-1. ### Carga e inspección inicial: 
-verificación de dimensiones, tipos de datos y estadísticos descriptivos.
-2. ### Limpieza de datos:
-detección de nulos, duplicados, validación de rangos lógicos y coherencia interna (verificación de que REM% + Deep% ≤ 100%).
-3. ### 3. La paradoja médica: el caso de los doctores (sub-análisis de H2) 
-minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
-4. ### 4. El BMI tiene un impacto direccional pero débil sobre el sueño profundo (H3)
+1. **Carga e inspección inicial:** verificación de dimensiones, tipos de datos y estadísticos descriptivos.
+2. **Limpieza de datos:** detección de nulos, duplicados, validación de rangos lógicos y coherencia interna (verificación de que REM% + Deep% ≤ 100%).
+3. **Creación de variables derivadas:** minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
+4. **EDA general:**
    - 3 histogramas con KDE para variables numéricas clave
    - Detección de outliers mediante el método del rango intercuartílico (IQR)
    - Matriz de correlación entre variables numéricas
-5.### 5. La edad no predice el porcentaje de sueño REM en este dataset (H4)
-combinación de visualizaciones específicas (boxplots, scatterplots) con tests estadísticos (Pearson, ANOVA, Tukey HSD, t-test, Chi²).
+5. **Análisis por hipótesis:** combinación de visualizaciones específicas (boxplots, scatterplots) con tests estadísticos (Pearson, ANOVA, Tukey HSD, t-test, Chi²).
 
 ---
 
@@ -117,13 +113,11 @@ combinación de visualizaciones específicas (boxplots, scatterplots) con tests 
 
 ## Hallazgos relevantes
 
-### 1. ¿Existe correlación positiva entre la duración del sueño y la calidad subjetiva percibida?
-### La duración del sueño es un predictor relevante de la calidad percibida (H1)
+### 1. La duración del sueño es un predictor relevante de la calidad percibida (H1)
 
 El análisis revela una correlación positiva fuerte entre las horas dormidas y la calidad subjetiva (r = 0.65, p < 0.001). La duración del sueño explica aproximadamente el **42% de la variabilidad** en la calidad percibida (r² ≈ 0.42), confirmando que es un factor importante pero no único: el 58% restante depende de otros factores como la composición del sueño, el estrés y los hábitos previos al descanso.
 
-### 2. ¿Las ocupaciones de alta demanda (Doctor, Nurse, Manager) muestran peores indicadores de sueño que las de baja demanda (Teacher, Retired, Homemaker)?
-### La demanda ocupacional impacta significativamente en el sueño (H2)
+### 2. La demanda ocupacional impacta significativamente en el sueño (H2)
 
 Existe un gradiente claro y estadísticamente significativo entre los tres niveles de demanda laboral:
 
@@ -135,8 +129,7 @@ Existe un gradiente claro y estadísticamente significativo entre los tres nivel
 
 La diferencia entre los extremos supera **1 punto** en una escala de 1 a 10. El test post-hoc de Tukey confirma diferencias significativas en las tres comparaciones por pares (p < 0.001).
 
-### 3. Creación de variables derivadas:** minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
-### La paradoja médica: el caso de los doctores (sub-análisis de H2)
+### 3. La paradoja médica: el caso de los doctores (sub-análisis de H2)
 
 Los doctores (N = 7.868) presentan un patrón especialmente preocupante:
 
@@ -147,23 +140,17 @@ Los doctores (N = 7.868) presentan un patrón especialmente preocupante:
 
 Los profesionales con mayor conocimiento sobre las consecuencias del mal sueño son sistemáticamente quienes peor duermen, debido a factores estructurales del sistema sanitario (guardias rotativas, atención 24/7, residencias intensivas).
 
-### 4. **EDA general:**
-   - 3 histogramas con KDE para variables numéricas clave
-   - Detección de outliers mediante el método del rango intercuartílico (IQR)
-   - Matriz de correlación entre variables numéricas
-### El BMI tiene un impacto direccional pero débil sobre el sueño profundo (H3)
+### 4. El BMI tiene un impacto direccional pero débil sobre el sueño profundo (H3)
 
 Se detectó una asociación negativa entre BMI y % de sueño profundo (r = −0.047, p < 0.001), confirmando la dirección predicha por la literatura clínica. Sin embargo, la **magnitud del efecto es muy débil**: el BMI explica apenas el **0.2% de la variabilidad** del sueño profundo (r² ≈ 0.002).
 
 Este resultado ilustra una distinción metodológica fundamental: **significancia estadística ≠ relevancia práctica**. Con muestras grandes, casi cualquier diferencia se detecta como significativa; reportar el tamaño del efecto (r, r²) es tan importante como reportar el p-valor.
 
-### 5. **Análisis por hipótesis:** combinación de visualizaciones específicas (boxplots, scatterplots) con tests estadísticos (Pearson, ANOVA, Tukey HSD, t-test, Chi²).
-### La edad no predice el porcentaje de sueño REM en este dataset (H4)
+### 5. La edad no predice el porcentaje de sueño REM en este dataset (H4)
 
 No se observa relación entre edad y % REM (r = 0.0016, p = 0.60). La hipótesis fue rechazada, posiblemente por el carácter sintético del dataset, el rango etario limitado (18-69 años) o la alta variabilidad individual. Este resultado refuerza la importancia de **verificar empíricamente las relaciones esperadas** en lugar de asumirlas.
 
-### 6. gráfico de barras (calidad por país), gráfico de torta (distribución de durmientes), gráfico de líneas (evolución por edad).
-### Existen durmientes eficientes con perfil identificable (H5)
+### 6. Existen durmientes eficientes con perfil identificable (H5)
 
 Se identificó un grupo de **287 durmientes eficientes** (0.29% del dataset): personas que con menos de 5.81 horas logran un % de sueño profundo > 22.1% y calidad subjetiva > 5.6. Son más jóvenes (edad media: 29.2 años), tienen un BMI ligeramente menor y su sueño profundo en minutos es significativamente mayor que el de los durmientes "privados" (t = 61.47, p < 0.001).
 
