@@ -88,9 +88,9 @@ El dataset contiene mediciones de calidad y composición del sueño de 100.000 i
 
 El análisis se desarrolló en Python (Jupyter Notebook) y siguió los siguientes pasos:
 
-1. ###Carga e inspección inicial: 
+1. ### Carga e inspección inicial: 
 verificación de dimensiones, tipos de datos y estadísticos descriptivos.
-2. ###Limpieza de datos:
+2. ### Limpieza de datos:
 detección de nulos, duplicados, validación de rangos lógicos y coherencia interna (verificación de que REM% + Deep% ≤ 100%).
 3. ### 3. La paradoja médica: el caso de los doctores (sub-análisis de H2) 
 minutos absolutos de sueño, grupos etarios, categorías de BMI, demanda laboral y tipología de durmientes.
